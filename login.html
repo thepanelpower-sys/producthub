@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmellHub.com - Login</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:linear-gradient(135deg,#ff6b6b,#4ecdc4);font-family:Arial;color:white;min-height:100vh;display:flex;align-items:center;justify-content:center;}
+        .login-box{background:rgba(255,255,255,0.95);padding:40px;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.3);width:100%;max-width:400px;text-align:center;backdrop-filter:blur(10px);}
+        .logo{font-size:50px;margin-bottom:10px;}
+        .brand-name{font-size:28px;color:#333;margin-bottom:20px;font-weight:bold;}
+        h3{margin-bottom:30px;color:#333;}
+        input{width:100%;padding:15px;margin:10px 0;border:2px solid #ddd;border-radius:10px;font-size:16px;}
+        input:focus{outline:none;border-color:#ff6b6b;}
+        button{width:100%;padding:15px;background:#ff6b6b;color:white;border:none;border-radius:10px;font-size:18px;cursor:pointer;margin-top:10px;font-weight:bold;}
+        button:hover{background:#ff5252;transform:translateY(-2px);}
+        .demo{text-align:left;background:#f0f8ff;padding:15px;border-radius:10px;margin-top:20px;font-size:14px;border-left:4px solid #ff6b6b;}
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="logo">🧴</div>
+        <div class="brand-name">SmellHub.com</div>
+        <h3>Login to Shop</h3>
+        <form id="loginform">
+            <input type="text" id="user" placeholder="Username" required>
+            <input type="password" id="pass" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="demo">
+            <strong>Demo:</strong> user / 123<br>
+            <em>Any username/password works! 🎉</em>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginform').onsubmit = function(){
+            localStorage.setItem('loggedin', 'true');
+            localStorage.setItem('username', document.getElementById('user').value);
+            alert('Login Successful! Welcome to SmellHub.com 🎉');
+            window.location.href = 'home1.html';
+            return false;
+        }
+    </script>
+</body>
+</html>

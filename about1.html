@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmellHub.com - About Us</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:linear-gradient(135deg,#ff6b6b,#4ecdc4);font-family:Arial,sans-serif;color:white;min-height:100vh;padding-top:80px;}
+        nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);padding:20px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+        nav h2{margin:0;font-size:24px;color:#333;}
+        nav button{background:#ff4757;color:white;border:none;padding:12px 24px;border-radius:25px;cursor:pointer;font-weight:bold;transition:all 0.3s;}
+        nav button:hover{background:#ff3742;transform:translateY(-2px);}
+        nav a{color:#333;text-decoration:none;font-weight:bold;margin-right:20px;transition:color 0.3s;}
+        nav a:hover{color:#ff6b6b;}
+        .about{padding:80px 20px;max-width:1000px;margin:0 auto;text-align:center;}
+        .about h1{font-size:42px;margin-bottom:30px;text-shadow:2px 2px 4px rgba(0,0,0,0.3);}
+        .about-content{background:rgba(255,255,255,0.15);padding:50px;border-radius:25px;backdrop-filter:blur(10px);margin-top:40px;box-shadow:0 20px 40px rgba(0,0,0,0.2);transition:all 0.3s;}
+        .about-content:hover{transform:translateY(-5px);}
+        .about-content h2{font-size:32px;margin-bottom:25px;color:white;}
+        .about-content p{font-size:18px;margin-bottom:30px;line-height:1.6;opacity:0.95;}
+        .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:40px;}
+        .feature{background:rgba(255,255,255,0.1);padding:30px;border-radius:20px;backdrop-filter:blur(10px);transition:all 0.3s;}
+        .feature:hover{transform:translateY(-10px);background:rgba(255,255,255,0.2);}
+        .feature-icon{font-size:50px;margin-bottom:20px;color:#ffd700;}
+        .feature h3{font-size:22px;margin-bottom:15px;}
+        .contact{padding:40px 20px;background:rgba(0,0,0,0.2);margin-top:50px;border-radius:20px;}
+        .contact h3{font-size:24px;margin-bottom:20px;}
+        .whatsapp-btn{display:inline-block;background:linear-gradient(45deg,#25d366,#128c7e);color:white;padding:15px 40px;border-radius:30px;font-size:20px;font-weight:bold;text-decoration:none;margin-top:20px;transition:all 0.3s;}
+        .whatsapp-btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(37,211,102,0.4);}
+        @media(max-width:768px){
+            .about h1{font-size:32px;}
+            .about-content{padding:30px;}
+            nav{flex-direction:column;gap:15px;padding:15px;}
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>🧴 SmellHub.com</h2>
+        <div>
+            <span id="username" style="background:#ff6b6b;padding:10px 20px;border-radius:20px;font-weight:bold;margin-right:20px;color:white;"></span>
+            <a href="home1.html">🏠 Home</a>
+            <a href="rates1.html">🛒 Products</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="about">
+        <h1>About SmellHub.com</h1>
+        <div class="about-content">
+            <h2>Premium Perfume Experience</h2>
+            <p>SmellHub.com brings you the finest collection of long-lasting perfumes crafted with premium imported ingredients. Experience luxury fragrances that last 12+ hours and define your personality.</p>
+            <p>Our mission is to deliver affordable luxury to your doorstep with guaranteed quality and fast delivery.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⏰</div>
+                    <h3>12+ Hours Long Lasting</h3>
+                    <p>Advanced formula keeps you fresh from morning meetings to evening events</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌿</div>
+                    <h3>100% Natural Ingredients</h3>
+                    <p>Hypoallergenic, skin-safe formula suitable for everyone</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Premium Imported Scents</h3>
+                    <p>World-class fragrances from France, UAE & Italy</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Delivered across India in 2-4 days</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact">
+            <h3>Ready to Order? Contact Us!</h3>
+            <p>WhatsApp: <strong>+91 62801 72358</strong></p>
+            <a href="https://wa.me/916280172358?text=Hi%20SmellHub!%20Tell%20me%20about%20your%20perfumes" class="whatsapp-btn" target="_blank">
+                💬 Chat on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Check login status
+        if(localStorage.getItem('loggedin') !== 'true'){
+            window.location.href = 'login.html';
+        }
+        
+        // Show username
+        document.getElementById('username').innerText = 'Hi, ' + (localStorage.getItem('username') || 'Customer');
+        
+        // Logout function
+        function logout(){
+            localStorage.clear();
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmellHub.com - Premium Perfumes</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:linear-gradient(135deg,#ff6b6b,#4ecdc4);font-family:Arial;color:white;min-height:100vh;}
+        nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);padding:20px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+        nav h2{margin:0;font-size:24px;color:#333;}
+        nav button{background:#ff4757;color:white;border:none;padding:12px 24px;border-radius:25px;cursor:pointer;font-weight:bold;}
+        nav button:hover{background:#ff3742;}
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 40px;}
+        .hero h1{font-size:48px;margin-bottom:20px;color:white;text-shadow:2px 2px 4px rgba(0,0,0,0.3);}
+        .hero p{font-size:22px;margin-bottom:40px;}
+        .btn{display:inline-block;padding:15px 35px;background:rgba(255,255,255,0.9);color:#333;border-radius:30px;text-decoration:none;font-weight:bold;font-size:18px;margin:0 15px;transition:all 0.3s;}
+        .btn:hover{transform:translateY(-5px);background:white;box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+        .benefits{padding:80px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:1200px;margin:0 auto;}
+        .card{background:rgba(255,255,255,0.15);padding:40px;border-radius:20px;text-align:center;backdrop-filter:blur(10px);transition:all 0.3s;}
+        .card:hover{transform:translateY(-10px);}
+        .card-icon{font-size:60px;margin-bottom:20px;}
+        .card h3{font-size:26px;margin-bottom:15px;}
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>🧴 SmellHub.com</h2>
+        <div>
+            <span id="username" style="background:#ff6b6b;padding:10px 20px;border-radius:20px;font-weight:bold;"></span>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Premium Perfumes Online</h1>
+        <p>Long-lasting fragrances | 12+ Hours | Best Quality</p>
+        <a href="rates1.html" class="btn">🛒 Shop Perfumes (₹699+)</a>
+        <a href="about1.html" class="btn">About SmellHub</a>
+    </div>
+
+    <div class="benefits">
+        <div class="card">
+            <div class="card-icon">⏰</div>
+            <h3>12+ Hours Long Lasting</h3>
+            <p>Premium formula stays fresh from morning to night</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🌿</div>
+            <h3>Natural Ingredients</h3>
+            <p>Safe for all skin types, hypoallergenic formula</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">⭐</div>
+            <h3>Premium Quality</h3>
+            <p>Imported essences, luxury in every spray</p>
+        </div>
+    </div>
+
+    <script>
+        if(localStorage.getItem('loggedin') !== 'true'){
+            window.location.href = 'login.html';
+        }
+        document.getElementById('username').innerText = 'Hi, ' + (localStorage.getItem('username') || 'User');
+        
+        function logout(){
+            localStorage.clear();
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

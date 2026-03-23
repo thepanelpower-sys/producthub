@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmellHub.com - Perfume Prices</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:linear-gradient(135deg,#ff6b6b,#4ecdc4);font-family:Arial;color:white;min-height:100vh;padding-top:80px;}
+        nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);padding:20px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+        nav h2{margin:0;font-size:24px;color:#333;}
+        nav button{background:#ff4757;color:white;border:none;padding:12px 24px;border-radius:25px;cursor:pointer;font-weight:bold;}
+        nav a{color:#333;text-decoration:none;font-weight:bold;margin-right:20px;}
+        .products{padding:60px 20px;max-width:1200px;margin:0 auto;}
+        .products h1{text-align:center;font-size:40px;margin-bottom:50px;text-shadow:2px 2px 4px rgba(0,0,0,0.3);}
+        .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;}
+        .product{background:rgba(255,255,255,0.15);padding:30px;border-radius:25px;text-align:center;backdrop-filter:blur(10px);transition:all 0.3s;box-shadow:0 10px 30px rgba(0,0,0,0.2);}
+        .product:hover{transform:translateY(-15px);}
+        .product img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:4px solid rgba(255,255,255,0.3);}
+        .product h3{font-size:24px;margin-bottom:15px;}
+        .price{font-size:32px;font-weight:bold;color:#ffd700;margin:20px 0;text-shadow:1px 1px 2px rgba(0,0,0,0.5);}
+        .order-btn{width:100%;padding:18px;background:linear-gradient(45deg,#28a745,#20c997);color:white;border:none;border-radius:25px;font-size:20px;cursor:pointer;font-weight:bold;margin-top:20px;transition:all 0.3s;}
+        .order-btn:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(40,167,69,0.4);}
+        .desc{font-size:16px;margin-bottom:20px;opacity:0.9;}
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>🧴 SmellHub.com</h2>
+        <div>
+            <span id="username" style="background:#ff6b6b;padding:10px 20px;border-radius:20px;font-weight:bold;margin-right:20px;"></span>
+            <a href="home1.html">🏠 Home</a>
+            <a href="about1.html">About</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="products">
+        <h1>Perfume Prices (₹)</h1>
+        <div class="products-grid">
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1611593731455-788d2f3a9069?w=200&h=200&fit=crop" alt="Rose Perfume">
+                <h3>Rose Elegance</h3>
+                <div class="price">₹799</div>
+                <div class="desc">Damascus rose + vanilla | 12+ hours lasting</div>
+                <button class="order-btn" onclick="order('Rose Elegance', '₹799')">🛒 Order Now</button>
+            </div>
+            
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1587014611670-f1e5e4c0e3d7?w=200&h=200&fit=crop" alt="Oud Perfume">
+                <h3>Luxury Oud</h3>
+                <div class="price">₹899</div>
+                <div class="desc">Rich oriental woody scent | Premium import</div>
+                <button class="order-btn" onclick="order('Luxury Oud', '₹899')">🛒 Order Now</button>
+            </div>
+            
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?w=200&h=200&fit=crop" alt="Citrus Perfume">
+                <h3>Citrus Fresh</h3>
+                <div class="price">₹699</div>
+                <div class="desc">Lemon + marine notes | Daily wear</div>
+                <button class="order-btn" onclick="order('Citrus Fresh', '₹699')">🛒 Order Now</button>
+            </div>
+            
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1601587598179-605b35d3bb5b?w=200&h=200&fit=crop" alt="Amber Perfume">
+                <h3>Amber Glow</h3>
+                <div class="price">₹949</div>
+                <div class="desc">Saffron + cinnamon | Evening luxury</div>
+                <button class="order-btn" onclick="order('Amber Glow', '₹949')">🛒 Order Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if(localStorage.getItem('loggedin') !== 'true'){
+            window.location.href = 'login.html';
+        }
+        document.getElementById('username').innerText = 'Hi, ' + (localStorage.getItem('username') || 'User');
+        
+        function logout(){
+            localStorage.clear();
+            window.location.href = 'login.html';
+        }
+        
+        function order(product, price){
+            const message = `Hi! Order from SmellHub.com\n\n📦 Product: ${product}\n💰 Price: ${price}\n\nPlease confirm stock & delivery!`;
+            window.open(`https://wa.me/916280172358?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
